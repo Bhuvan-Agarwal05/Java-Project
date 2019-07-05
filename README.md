@@ -1,7 +1,12 @@
 # Java-Project
 
-at the initial commit : I committed my complete project, without Exception Handling.
+1)At the initial commit : I committed my complete project, without Exception Handling.
 their was lots of errors that time.
 
 
-At the next commit: "TRY-CATCH Block is added with call(),add(), and partially to sub().
+
+2)At the next commit: "TRY-CATCH Block (Exception Handling Technique) is added with call(),add(), and partially to sub().
+
+
+3) At the next commit: "TRY-CATCH Block (Exception Handling Technique) is added with sub(),mul() and div(). 
+   Everything is working fine now.

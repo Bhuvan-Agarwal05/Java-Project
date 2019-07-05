@@ -95,7 +95,7 @@
         			x=0;	// x=0 , because after Successfull Execution of the Addition Operation, it will come out of loop.
         		 }catch(Exception e)
             			{
-            				System.out.println("\t\t\tInvalid Input.You Cannot Enter Any Character or String in Addition Operation.");
+            				System.out.println("\t\t\tInvalid Input.You Cannot Enter Any Character or String in Addition Operation.\n\t*****RE-ENTER NUMBERS*****");
             				myObj.nextLine();
 
             			}
@@ -108,7 +108,7 @@
     /*  TRY-CATCH Block in Subtraction Method */
         public static void sub()
         {
-        	double num1,num2;
+        	double num1=0,num2=0;
             int x=1;
             while(x==1)
             {
@@ -116,42 +116,102 @@
             	 {
         			System.out.println("Enter 1st number:-");
         			num1=myObj.nextDouble();
+        		 }catch(Exception e)
+            			{
+            				System.out.println("\t\t\tInvalid Input.You Cannot Enter Any Character or String in Subtraction Operation.");
+            				myObj.nextLine();
+                            continue;
+            			}
+            	try
+            	 {
         			System.out.println("Enter 2nd number:-");
         			num2=myObj.nextDouble();
         			System.out.println("The Answer is: "+ (num1-num2));
-        			x=0;
+        		    x=0;
         		 }catch(Exception e)
             			{
-            				System.out.println("Invalid Input.You Cannot Enter Any Character or String in Subtraction Operation.");
-            				myObj.nextLine();
-            			}
-            }
+            				System.out.println("\t\t\tInvalid Input.You Cannot Enter Any Character or String in Subtraction Operation.\n\t*****RE-ENTER NUMBERS*****");
+            				myObj.nextLine();    
+            			}	
+        	}
+            
         }    
 
 
+
+ /* TRY-CATCH Block in Multiplication Operation  */
         public static void mul()
         {
-        	double num1,num2;
-        	Scanner myObj=new Scanner(System.in);
-        	System.out.println("Enter 1st number:-");
-        	num1=myObj.nextDouble();
-        	System.out.println("Enter 2nd number:-");
-        	num2=myObj.nextDouble();
-
-        	System.out.println("The Answer is: "+ (num1*num2));
+        	double num1=0,num2=0;
+        	int x=1;
+        	while(x==1)
+        	{
+        		try
+        		{
+        	      	System.out.println("Enter 1st number:-");
+        			num1=myObj.nextDouble();
+        		}catch(Exception e)
+        		 {
+                    System.out.println("\t\t\tInvalid Input. You Cannot Enter any Character or String in Multiplication Operation.");
+                    myObj.nextLine();
+                    continue;    // To re-enter 1st number if their is an error.
+        		 }
+        		 try
+        		 {
+        			System.out.println("Enter 2nd number:-");
+        			num2=myObj.nextDouble();
+        			System.out.println("The Answer is: "+ (num1*num2));
+        			x=0;
+        		 }catch(Exception e)
+        		 {
+                    System.out.println("\t\t\tInvalid Input. You Cannot Enter any Character or String in Multiplication Operation.\n\t*****RE-ENTER NUMBERS*****");
+                    myObj.nextLine();
+        		 }
+        	}	 
         }
+ 
 
+
+ /* TRY-CATCH Block in Division Operation   */
         public static void div()
         {
-        	double num1,num2;
+        	double num1=0,num2=1;
+            int x=1;
+            while(x==1)
+            {
+            	try
+            	{
+        			System.out.println("Enter 1st number:-");
+        			num1=myObj.nextDouble();
+        		}catch(Exception e)
+        		{
+        			System.out.println("\t\t\tInvalid User Input. You Cannot Enter any Character or String in Division Operation.");
+        			myObj.nextLine();
+        			continue;
+        		}
 
-        	System.out.println("Enter 1st number:-");
-        	num1=myObj.nextDouble();
-        	System.out.println("Enter 2nd number:-");
-        	num2=myObj.nextDouble();
-
-        	System.out.println("The Answer is: "+ (double)num1/num2);
+        		try
+        		{
+        			System.out.println("Enter 2nd number:-");
+        			num2=myObj.nextDouble();
+        			if(num2==0.0)
+        			  {
+        				System.out.println("Invalid Input. You Cannot Enter '0' as Denominator.\n\t*****RE-ENTER NUMBERS*****");
+        				continue;
+        			  }
+        			System.out.println("The Answer is: "+ (double)num1/num2);
+        			x=0;
+        		}catch(Exception e)
+        		  {
+        			  System.out.println("\t\t\tInvalid User Input. You Cannot Enter any Character or String in Division Operation.\n\t*****RE-ENTER NUMBERS*****");
+                      myObj.nextLine();
+        		  }
+        	}
         }
+
+
+
+
 
         public static void rem()
         {
