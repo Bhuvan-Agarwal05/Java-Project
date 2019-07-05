@@ -9,17 +9,24 @@
    {
    	static Scanner myObj=new Scanner(System.in);
    	
-   	public static void main(String[] args)
+   	public static void main(String[] args) throws Exception
+     	{   
+   		    call();  // Calling the method call(), to start the program execution.
+     	}
+
+  /* TRY-CATCH Block in Switch Case */
+   	public static void call()
    	{
-   		    
-   		    System.out.println("\t\t\t\t*****WELCOME TO THE JAVA CALCULATOR*****");
-   		while(true)
+   		int choice=1;   
+   		System.out.println("\t\t\t\t*****WELCOME TO THE JAVA CALCULATOR*****");
+   		while(choice>0 && choice<=14)
    		{
-   			System.out.println("\n\t\t\t\t\t\tMenu:-");
-   			System.out.println("\t\t\t\t\t1) Addition of two numbers.\n\t\t\t\t\t2) Subtraction of two numbers.\n\t\t\t\t\t3) Multiplication of two numbers.\n\t\t\t\t\t4) Division.\n\t\t\t\t\t5) Remainder.\n\t\t\t\t\t6) Even or, Odd Check.\n\t\t\t\t\t7) Prime,Non-prime or, Composite Check.\n\t\t\t\t\t8) Login to Trigonometry Function.\n\t\t\t\t\t9) Find all Even Numbers within a specified range.\n\t\t\t\t\t10) Find all Odd Numbers within a specified range.\n\t\t\t\t\t11) Sum of Digits of a Number.\n\t\t\t\t\t12) Factorial of a Number.\n\t\t\t\t\t13) Fibonacci Series.\n\t\t\t\t\t14) EXIT Calculator.");
-   			System.out.println("Enter your choice:-");
-   			int choice=myObj.nextInt();  
-         
+   			try
+               {
+   					System.out.println("\n\t\t\t\t\t\tMenu:-");
+   					System.out.println("\t\t\t\t\t1) Addition of two numbers.\n\t\t\t\t\t2) Subtraction of two numbers.\n\t\t\t\t\t3) Multiplication of two numbers.\n\t\t\t\t\t4) Division.\n\t\t\t\t\t5) Remainder.\n\t\t\t\t\t6) Even or, Odd Check.\n\t\t\t\t\t7) Prime,Non-prime or, Composite Check.\n\t\t\t\t\t8) Login to Trigonometry Function.\n\t\t\t\t\t9) Find all Even Numbers within a specified range.\n\t\t\t\t\t10) Find all Odd Numbers within a specified range.\n\t\t\t\t\t11) Sum of Digits of a Number.\n\t\t\t\t\t12) Factorial of a Number.\n\t\t\t\t\t13) Fibonacci Series.\n\t\t\t\t\t14) EXIT Calculator.");
+   					System.out.println("Enter your choice:-");
+   					choice=myObj.nextInt();  
    			    switch(choice)
    			     {
    					case 1: add();
@@ -52,38 +59,75 @@
                     		System.exit(0);   //It Terminates the JAVA Program & "return" Terminates the function only.
                     			default:
                     				System.out.println("Invalid Input");
+                    choice=0;
                  }
-             }           
+                }catch(Exception e){
+                	System.out.println("\t\t\t*****Invalid User Input.*****\n\t\t\tPlease Enter Value in b/w 1 to 14.");  // If their is any Exception found in try block, JVM will 'catch' that and execute the statements from catch block.
+                	myObj.nextLine();   // To going back to top.
+                }    
+        }          
     }
 
-        
-            
-   		
-     
 
+
+    /* TRY-CATCH Block in Addition Method  */
         public static void add()
         {
-        	double num1,num2;
+        	double num1=0,num2=0;
+        	int x=1;
+            while(x==1)   //loop that will run untill both the inputs are Numbers.
+              {
+                try    // 1st TRY Block to check for exceptions in 1st input
+        		 {	
+        		 	System.out.println("Enter 1st number:-");
+        			num1=myObj.nextDouble();
+        		 }catch(Exception e)
+            			{
+            				System.out.println("\t\t\tInvalid Input.You Cannot Enter Any Character or String in Addition Operation.");
+            				myObj.nextLine();
+            				continue;
+            			}
+        		 try    // 2nd TRY Block to check for exceptions in 2nd input
+        		 {
+        			System.out.println("Enter 2nd number:-");
+        			num2=myObj.nextDouble();
+        			System.out.println("The Answer is: "+ (num1+num2));
+        			x=0;	// x=0 , because after Successfull Execution of the Addition Operation, it will come out of loop.
+        		 }catch(Exception e)
+            			{
+            				System.out.println("\t\t\tInvalid Input.You Cannot Enter Any Character or String in Addition Operation.");
+            				myObj.nextLine();
 
-        	System.out.println("Enter 1st number:-");
-        	num1=myObj.nextDouble();
-        	System.out.println("Enter 2nd number:-");
-        	num2=myObj.nextDouble();
-
-        	System.out.println("The Answer is: "+ (num1+num2));
+            			}
+       		  }
         }
 
+
+
+
+    /*  TRY-CATCH Block in Subtraction Method */
         public static void sub()
         {
         	double num1,num2;
+            int x=1;
+            while(x==1)
+            {
+            	try
+            	 {
+        			System.out.println("Enter 1st number:-");
+        			num1=myObj.nextDouble();
+        			System.out.println("Enter 2nd number:-");
+        			num2=myObj.nextDouble();
+        			System.out.println("The Answer is: "+ (num1-num2));
+        			x=0;
+        		 }catch(Exception e)
+            			{
+            				System.out.println("Invalid Input.You Cannot Enter Any Character or String in Subtraction Operation.");
+            				myObj.nextLine();
+            			}
+            }
+        }    
 
-        	System.out.println("Enter 1st number:-");
-        	num1=myObj.nextDouble();
-        	System.out.println("Enter 2nd number:-");
-        	num2=myObj.nextDouble();
-
-        	System.out.println("The Answer is: "+ (num1-num2));
-        }
 
         public static void mul()
         {
