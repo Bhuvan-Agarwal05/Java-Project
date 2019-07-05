@@ -39,7 +39,7 @@
    							break;
    					case 5: rem();
    							break;
-   					case 6: evenoddcheck();
+   					case 6: EvenOdd.evenoddcheck();
    							break;
    					case 7: pncCheck();
    							break;
@@ -212,32 +212,48 @@
 
 
 
-
+  /* TRY-CATCH Block in Remainder Operation   */
         public static void rem()
         {
-        	int num1,num2;
-
-        System.out.println("NOTE:- You can only enter Integer Value here to find a Proper Remainder.");  // Notifying the user that he/she cannot enter decimal number as input coz, (%) operator doesnt work with float numbers
-        System.out.println("Enter 1st number:-");
-        num1=myObj.nextInt();
-        System.out.println("Enter 2nd number:-");
-        num2=myObj.nextInt();
-
-        System.out.println("The Answer is: "+ (num1%num2));
+        	int num1=0,num2=1,x=1;
+            System.out.println("*****NOTE:- You can only enter Integer Values here to find a Proper Remainder.*****");  // Notifying the user that he/she cannot enter decimal number as input coz, (%) operator doesnt work with float numbers
+         while(x==1)
+         {
+          try
+          {
+        		System.out.println("Enter 1st number:-");
+        		num1=myObj.nextInt();
+          }catch(Exception e)
+            {
+            	System.out.println("\t\t\tInvalid Input. You Cannot Enter any Decimal,Character or String Value.");
+            	myObj.nextLine();
+            	continue;
+            }
+          try
+          {
+      		  System.out.println("Enter 2nd number:-");
+      		  num2=myObj.nextInt();
+       		  System.out.println("The Answer is: "+ (num1%num2));
+       		  x=0;
+       	  }catch(Exception e)
+            {
+            	if(num2==0)  // For Checking whether Denominator's value is '0'
+            	{
+            		System.out.println("\t\t\tInvalid Input. You Cannot Enter '0' as Denominator.\n*****RE-ENTER NUMBERS*****"); 
+            		num2=1;  // Setting the Denominator to '1'. So that next time it can again check for error.
+            	}
+            	else
+            	   System.out.println("\t\t\tInvalid Input. You Cannot Enter any Decimal,Character or String Value.\n*****RE-ENTER NUMBERS*****");
+            	myObj.nextLine();
+            }
+        }
     }
 
 
-    public static void evenoddcheck()
-    {
-    	int num1;
 
-    	System.out.println("Enter number:-");
-    	num1=myObj.nextInt();
-    	if(num1==0 || num1%2==0)
-    		System.out.println("Even Number");
-    	else
-    		System.out.println("Odd Number");
-    }
+
+
+    
 
     public static void pncCheck()
     {
