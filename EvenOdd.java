@@ -3,7 +3,7 @@ import java.util.*;
 
 public class EvenOdd
 {
-	public static void evenoddcheck()
+	public static void evenoddcheck()   
 	{ 
 		int num1=0,x=1;
        Scanner myObj=new Scanner(System.in);
@@ -26,8 +26,9 @@ public class EvenOdd
 	    }
     }
 
-	public static void main(String[] args)
-	{
-		evenoddcheck();
-	}
+//	public static void main(String[] args)
+//	{
+//		evenoddcheck();
+//  }
+
 }

@@ -17,9 +17,9 @@
   /* TRY-CATCH Block in Switch Case */
    	public static void call()
    	{
-   		int choice=1;   
+   		int choice; 
    		System.out.println("\t\t\t\t*****WELCOME TO THE JAVA CALCULATOR*****");
-   		while(choice>0 && choice<=14)
+   		while(true)
    		{
    			try
                {
@@ -39,9 +39,9 @@
    							break;
    					case 5: rem();
    							break;
-   					case 6: EvenOdd.evenoddcheck();
+   					case 6: EvenOdd.evenoddcheck();   // Method Called from another Class 'EvenOdd' (A seperate Program)
    							break;
-   					case 7: pncCheck();
+   					case 7: PrimeNonprimeComposite.pncCheck();   // Method Called from another Class 'PrimeNonprimeComposite' 
    							break;
    					case 8: trigonometry();
    							break;
@@ -58,8 +58,8 @@
    					case 14: System.out.println("\t\t\t\t*****Thank You For Using Java Calculator*****");
                     		System.exit(0);   //It Terminates the JAVA Program & "return" Terminates the function only.
                     			default:
-                    				System.out.println("Invalid Input");
-                    choice=0;
+                    				System.out.println("\tInvalid Input.\nPlease Enter Value in b/w 1 to 14.");
+                    				
                  }
                 }catch(Exception e){
                 	System.out.println("\t\t\t*****Invalid User Input.*****\n\t\t\tPlease Enter Value in b/w 1 to 14.");  // If their is any Exception found in try block, JVM will 'catch' that and execute the statements from catch block.
@@ -255,28 +255,7 @@
 
     
 
-    public static void pncCheck()
-    {
-    	int num1,flag=0;
-
-    	System.out.println("Enter the Number:-");
-    	num1=myObj.nextInt();
-    	if(num1==0 || num1==1)
-    		System.out.println("Composite Number");
-
-    	for(int i=2;i<=num1;i++)
-    	{
-    		if(num1%i==0 && num1!=i)
-    			flag=0;
-    		else
-    			flag=1;
-    	}
-
-    	if(flag==1)
-    		System.out.println("Prime Number");
-    	else
-    		System.out.println("Non-Prime Number");
-    }
+    
 
     public static void trigonometry()
     {
